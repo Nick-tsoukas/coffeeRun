@@ -22,10 +22,3 @@
   formHandler.addInputHandler(Validation.isCompanyEmail);
   console.log(formHandler);
 })(window);
-
-function greet() {
-  console.log('hello world');
-  alert('welcome to my world!');
-}
-
-greet();
