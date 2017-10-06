@@ -14,14 +14,22 @@
   RemoteDataStore.prototype.add = function (key, val) {
     $.post(this.serverUrl, val, function (serverResponse) {
       console.log(serverResponse);
+      cb(serverResponse);
     });
   };
 
-  RemoteDataStore.prototype.getAll = function () {
+  RemoteDataStore.prototype.getAll = function (cb) {
     $.get(this.serverUrl, function (serverResponse) {
       console.log(serverResponse);
     })
-  }
+  };
+
+  RemoteDataStore.prototype.get = function (key, cb) {
+    $.get(this.serverUrl + '/' + key, function (serverResponse) {
+      console.log(serverResponse);
+      cb(serverResponse);
+    });
+  };
 
   App.RemoteDataStore = RemoteDataStore;
   window.App = App;
